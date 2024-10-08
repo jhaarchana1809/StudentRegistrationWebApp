@@ -1,17 +1,18 @@
 package com.nit.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.nit.entity.StudentDetails;
 import com.nit.repository.StudentRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -52,11 +53,21 @@ public class StuentController {
 		//TODO: process POST request
 		
 		loadFormData(model);
-		System.out.println("#############################"+student);
+		studentRepository.save(student);
 		
 		model.addAttribute("msg", "Register Successfully");
 		
 		return "index";
+	}
+	//display student details
+	
+	@GetMapping("/viewStudents")
+	public String getStudentData(Model model) {
+		
+		List<StudentDetails> studentList = studentRepository.findAll();
+		
+		model.addAttribute("students", studentList);
+		return "showStudents";
 	}
 	
 

@@ -50,16 +50,13 @@
                     </form:select>
                 </div>
 
-                <div class="col-md-6">
-                    <label class="form-label">Timings</label><br/>
-                    <form:checkboxes items="${timings}" path="timing" class="form-check-input"/>
-                </div>
-
+               
                 <div class="col-12">
                     <input type="submit" value="Register" class="btn btn-primary"/>
                 </div>
             </form:form>
         </div>
+        <a href="viewStudents">View Student Details</a>
     </div>
 </div>
 

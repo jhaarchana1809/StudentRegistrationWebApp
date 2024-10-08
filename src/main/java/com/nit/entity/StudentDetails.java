@@ -18,6 +18,5 @@ public class StudentDetails {
 	private String email;
 	private String gender;
 	private String course;
-	private String[] timing;
 
 }
